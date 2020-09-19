@@ -7,8 +7,8 @@ class Resource:
     """
     list型として受け取りアンパックして代入する
     受け取るlistの順序が正しい前提となるクラス
-    resouce_list[0]: date
-    resouce_list[1]: cpu
+    resource_list[0]: date
+    resource_list[1]: cpu
     """
     _date: str
     _cpu: int
@@ -27,19 +27,19 @@ class Resource:
         return self._cpu
 
 # 代入用のデータ（最終はここをファイルインプットとする）
-resouce1 = ['2020/9/18 11:00', 73]
-resouce2 = ['2020/9/18 11:05', 65]
-resouce3 = ['2020/9/18 11:10', 67]
+resource1 = ['2020/9/18 11:00', 73]
+resource2 = ['2020/9/18 11:05', 65]
+resource3 = ['2020/9/18 11:10', 67]
 
 # Sort元のデータをクラスのリストとして作る
-resoucelists = []
-resoucelists.append(Resource(resouce1))
-resoucelists.append(Resource(resouce2))
-resoucelists.append(Resource(resouce3))
+resourcelists = []
+resourcelists.append(Resource(resource1))
+resourcelists.append(Resource(resource2))
+resourcelists.append(Resource(resource3))
 
-print(resoucelists)
+print(resourcelists)
 
 # CPUの降順に並べなおす
-resoucelists.sort(key=lambda x: -x.cpu)
+resourcelists.sort(key=lambda x: -x.cpu)
 
-print(resoucelists)
+print(resourcelists)
