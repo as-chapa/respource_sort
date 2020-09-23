@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def extract_from_date(df, from_date: str, to_date: str):
-    return df.query('@from_date < date < @to_date')
+    return df.query('@from_date <= date <= @to_date')
 
 FILENAME = 'sample2.csv'
 df = pd.read_csv(FILENAME)
@@ -13,9 +13,10 @@ print(df)
 # df_out = df[(df['cpu'] > 10) & (df['date'] > '2020/9/22 11:00')]
 # print(df_out)
 
-# print(df.query('cpu > 10 and "2020/9/22 11:20" > date > "2020/9/22 11:00"'))
-
-a = "2020/9/22 11:00"
-b = "2020/9/22 11:20"
+a = "2020/9/20 11:00"
+b = "2020/9/20 11:20"
 df_out2 = extract_from_date(df, a, b)
+
+print(df_out2.head(1)['cpu'])
 print(df_out2['cpu'].max())
+print(df_out2.sort_values('cpu', ascending=False))

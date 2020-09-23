@@ -42,6 +42,9 @@ with open(FILENAME, 'rt') as f:
 
 print(resourcelists)
 
-# # CPUの降順に並べなおす
+## CPUの最大値を求める
+print(max(resourcelists, key=lambda x: x.cpu))
+
+## CPUの降順に並べなおす
 resourcelists.sort(key=lambda x: -x.cpu)
 print(resourcelists)
